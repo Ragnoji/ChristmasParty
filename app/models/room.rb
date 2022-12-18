@@ -1,3 +1,3 @@
 class Room < ApplicationRecord
-  validates :city_id, presence: true
+  validates :deadline_at, presence: true
 end

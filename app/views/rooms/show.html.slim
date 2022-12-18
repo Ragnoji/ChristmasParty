@@ -1,0 +1,28 @@
+.show-main
+
+    .title
+        h1
+            | Welcome to the room
+            = @room.description
+
+
+    .messages.container
+        - @messages.each do |message|
+            .message
+                
+                = message.content
+                p 
+                    | By:
+                    = message.user.email    
+             
+
+    .section-message
+        = form_with model: [@room, @message] do |form|
+            .content
+              
+                = form.text_field :content    
+        
+            .btn
+                = form.submit "Send", class: "button-jos"  
+   
+    

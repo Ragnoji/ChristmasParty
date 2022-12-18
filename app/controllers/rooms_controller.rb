@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @messages = @room.messages
   end
 
   def new

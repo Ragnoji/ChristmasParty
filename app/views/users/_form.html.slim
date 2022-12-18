@@ -1,0 +1,39 @@
+= form_with(model: user) do |form|
+  - if user.errors.any?
+    #error_explanation.container
+      h3 
+        = pluralize(user.errors.count, "error") 
+        |  prohibited this user from being saved:
+
+      ul
+        - user.errors.each do |error|
+          li = error.full_message 
+
+  .container-main
+    .container
+      div.field
+        = form.label :first_name
+        = form.text_field :first_name
+      
+      div.field
+        = form.label :last_name
+        = form.text_field :last_name
+
+      div.field
+        = form.label :email
+        = form.text_field :email
+      div.field
+        = form.label :date_of_birth
+        = form.date_field :date_of_birth, min: Date.today
+      div.field
+        = form.label :gender
+        = form.select :gender, %i[not_chosen man girl]
+      div.field
+        = form.label :description
+        = form.text_area :description
+      div.field
+        = form.label :password
+        = form.text_field :password, type: :password
+
+      div.actions
+        = form.submit "Sign up", class: "button-jos"

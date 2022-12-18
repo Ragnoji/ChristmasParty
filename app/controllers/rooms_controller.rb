@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :set_room, only: %i[show edit update destroy]
+
   def index
     @rooms = Room.all
   end
@@ -7,7 +9,8 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @room = Room.new 
+    @room = Room.new
+    @cities = City.all
   end
 
   def edit
@@ -43,6 +46,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:city_id, :description)
+    params.require(:room).permit(:city_id, :description, :deadline_at)
   end
 end

@@ -3,4 +3,6 @@ class Room < ApplicationRecord
   validates :city_id, presence: true
 
   has_many :messages, dependent: :destroy
+  has_many :room_memberships, dependent: :destroy
+  has_many :users, through: :room_memberships
 end

@@ -1,7 +1,6 @@
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
 
-<% binding.pry %> 
 <%= form_with model: [@room, @message] do |form|  %>
     <div>
         <%= form.label :content %>
@@ -13,12 +12,13 @@
 
 <% end %>
 
-<% if ProjectMembership.find_by(user_id: current_user.id).present? %>
-    <%= link_to 'Unfollow', room_path(@room) %>
-<% elsif %>
-    <%= link_to 'Follow', room_path(@room) %>
-<% else %>
+<% if RoomMembership.find_by(user_id: current_user.id).present? && RoomMembership.find_by(user_id: current_user.id).role == 'owner'%>
     <p>Вы владелец румы</p> 
+<% elsif RoomMembership.find_by(user_id: current_user.id).present? && RoomMembership.find_by(user_id: current_user.id).role == 'member'%>
+    <%= button_to "Unfollow", room_path(@room),
+  class: "btn btn-primary" %>
+<% else %>
+    <%= link_to 'Follow', room_path(@room) %>
 <% end %>
 
 

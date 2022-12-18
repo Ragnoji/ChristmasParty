@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @cities = City.all
   end
 
   def create

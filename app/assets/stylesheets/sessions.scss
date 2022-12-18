@@ -23,3 +23,23 @@
         transform: translateX(0);
     }
 }
+
+
+//login styles
+
+.container-main{
+    
+    max-width: 50%;
+    margin:auto;
+    .field{
+        display: flex;
+        flex-direction: column;
+    }
+    input[type="submit"]{
+        margin-top: 10px;
+    }
+}
+
+.field{
+    margin-top: 10px;
+}

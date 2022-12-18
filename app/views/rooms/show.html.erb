@@ -1,2 +1,34 @@
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
+
+<% binding.pry %> 
+<%= form_with model: [@room, @message] do |form|  %>
+    <div>
+        <%= form.label :content %>
+        <%= form.text_field :content %>    
+    </div>
+    <div>
+        <%= form.submit%>   
+    </div>
+
+<% end %>
+
+<% if ProjectMembership.find_by(user_id: current_user.id).present? %>
+    <%= link_to 'Unfollow', room_path(@room) %>
+<% elsif %>
+    <%= link_to 'Follow', room_path(@room) %>
+<% else %>
+    <p>Вы владелец румы</p> 
+<% end %>
+
+
+<% @messages.each do |message| %>
+    <div>
+        <%= message.content %>
+    </div>
+    <div>
+        <p>By: </p>
+        <%= message.user.email %>
+        <hr>
+    </div>
+<% end %>

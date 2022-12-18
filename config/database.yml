@@ -26,8 +26,6 @@ development:
   encoding: unicode
   host: localhost
   pool: 5
-  username: postgres
-  password: stackers
   database: ChristmasParty_development
 
   # The specified database role being used to connect to postgres.

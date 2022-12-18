@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
         @message = Message.new(message_params.merge({room: @room, user: current_user}))
         if @message.save
             flash[:notice] = "Message created"
-            broadcast_message_create
+            # broadcast_message_create
             redirect_to room_path(@room)
         else
             flash.now[:notice] = "Something went wrong"
@@ -31,10 +31,10 @@ class MessagesController < ApplicationController
         @room = Room.find(params[:room_id])
     end
 
-    def broadcast_message_create
-        Turbo::StreamsChannel.broadcast_render_to(
-            [:messages], template: "messages/created", locals: { message: @message }
-        )
-    end
+    # def broadcast_message_create
+    #     Turbo::StreamsChannel.broadcast_render_to(
+    #         [:messages], template: "messages/created", locals: { message: @message }
+    #     )
+    # end
 
 end

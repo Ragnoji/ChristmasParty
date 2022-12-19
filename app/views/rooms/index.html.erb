@@ -15,6 +15,22 @@
       backgroud-image: url('https://p4.wallpaperbetter.com/wallpaper/493/393/84/decoration-new-year-christmas-christmas-wood-hd-wallpaper-preview.jpg');
     }
 
+    .navbar{
+      position:relative;
+      z-index: 100;
+      background: #ccc;
+      color: #fff;
+    }
+
+    ul{
+      display: flex;
+    }
+    li{
+      color: #fff; 
+      list-style-type: none;
+      display: inline-block;
+    }
+
     *{
       font-family: 'Courier New', Courier, monospace;
     }
@@ -26,6 +42,9 @@
         padding: 10px;
     }
 
+    .navbar-brand{
+      display:none;
+    }
     .image {
         height: 270px;
         width: 270px;
@@ -98,13 +117,6 @@
       top: 0;
       left: 0;
 
-      /* Зависит от размера изображения */
-      @media screen and (max-width: 640px){
-      img.bg {
-        left: 50%;
-        margin-left: -320px;
-        }
-      }
     }
 
     button {
@@ -132,7 +144,10 @@
 
 </style>
 <img src="https://img.povar.ru/uploads/6f/27/9d/d8/mandarini-758591.jpg" class="background" />
-<center><h1>Christmas Party</h1></center>
+
+<%= render "layouts/nav" %>
+<h1>Christmas Party</h1>
+
   <div class='row'>
   <% @rooms.each do|room| %>
       <div class="room" onclick="location.href='/rooms/<%=room.id%>'" style="display: inline-block;">

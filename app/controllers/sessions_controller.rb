@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:current_user_id)
-    redirect_to root_path, notice: "Successfully logged out"
+    redirect_to new_sessions_path, notice: "Successfully logged out"
   end
 
   private

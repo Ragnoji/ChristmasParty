@@ -5,6 +5,9 @@
             | Welcome to the room
             = @room.description
 
+        p 
+            | Members: 
+            = @room.room_memberships.count
 
     .messages.container
         - @messages.each do |message|
@@ -23,6 +26,10 @@
                 = form.text_field :content    
         
             .btn
-                = form.submit "Send", class: "button-jos"  
-   
-    
+                = form.submit "Send", class: "button-jos"   
+                - if @room.room_memberships.find_by(user: current_user, role: :owner).present?
+                    p Вы владелец румы
+                - elsif @room.room_memberships.find_by(user_id: current_user, role: :member).present? 
+                    = button_to "Unfollow", room_follow_path(@room, 2), method: :delete, class: "button-jos"
+                - else
+                    = button_to 'Follow', room_follows_path(@room), class: "button-jos"

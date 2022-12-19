@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "rooms#index"
 
   resources :rooms do
+    resources :follows, only: %i[create destroy], module: :rooms
     resources :messages, only: %i[create]
   end
 

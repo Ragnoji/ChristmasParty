@@ -131,6 +131,10 @@
       text-decoration: none;
       color:black;
     }
+    .nav-item > .nav-link {
+        color: white;
+        font-size: larger;
+    }
 
     
 </style>
@@ -138,6 +142,7 @@
 
 <%= render "layouts/nav" %>
 <h1>Christmas Party</h1>
+
   <div class='row'>
   <% @rooms.each do|room| %>
       <div class="room" onclick="location.href='/rooms/<%=room.id%>'" style="display: inline-block;">

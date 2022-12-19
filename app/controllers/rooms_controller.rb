@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
-    render :index, layout: false
+    render :index
   end
 
   def show
@@ -29,18 +29,9 @@ class RoomsController < ApplicationController
     end
   end
 
-  def follow 
-    @room_membership = RoomMembership.new(room_membership_follow_params)
-    redirect_to @room, notice: "You joined to the room."
-  end
-
-  def unfollow 
-    RoomMembership.find_by(room_id: @room.id).destroy
-  end
-
   def destroy
     @room.destroy
-    redirect_to rooms_url, notice: "Room was successfully destroyed."
+    redirect_to rooms_path, notice: "Room was successfully destroyed."
   end
 
   private 
@@ -58,14 +49,6 @@ class RoomsController < ApplicationController
       room: @room,
       user: current_user,
       role: :owner
-    }
-  end
-
-  def room_membership_follow_params
-    {
-      room: @room,
-      user: current_user,
-      role: :member
     }
   end
 end

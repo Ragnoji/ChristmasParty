@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +45,7 @@ input[type=date]{
 }
 </style>
 <div class='all_el'>
+
 <%= form_with(model: room) do |form| %>
   <% if room.errors.any? %>
     <div id="error_explanation">
@@ -69,11 +71,12 @@ input[type=date]{
     <%= form.label :date_of_event %>
     <%= form.date_field :deadline_at, min: Date.today %>
   </div>
-  <br>
+
   <div class="city">
-    <%= form.select :city_id, @cities.map { |city| [city.name, city.id] } %>
+    <%= form.select :city_id, City.all.map { |city| [city.name, city.id] } %>
   </div>
   <br>
+
   <%= form.submit "New Room", class: "button-jos" %>
   
 </div>
@@ -83,3 +86,4 @@ input[type=date]{
 </body>
 
 </html>
+

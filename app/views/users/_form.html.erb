@@ -30,12 +30,12 @@
 
       <div class="field">
         <%= form.label :date_of_birth %>
-        <%= form.date_field :date_of_birth, min: Date.today %>
+        <%= form.date_field :date_of_birth, max: Date.today %>
       </div>
 
       <div class="field">
         <%= form.label :gender %>
-        <%= form.select :gender, %i[not_chosen man girl] %>
+        <%= form.select :gender, %i[not_chosen Male Female] %>
       </div>
 
       <div class="field">

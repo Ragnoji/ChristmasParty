@@ -22,7 +22,7 @@
   </div>
 
   <div class="field">
-    <%= form.select :city_id, @cities.map { |city| [city.name, city.id] } %>
+    <%= form.select :city_id, City.all.map { |city| [city.name, city.id] } %>
   </div>
 
   <div class="actions">

@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+
+<audio autoplay>
+  <source src="<%= asset_path('JingleBells.mp3') %>">
+</audio>
+
 <style>
     body {
       backgroud-image: url('https://p4.wallpaperbetter.com/wallpaper/493/393/84/decoration-new-year-christmas-christmas-wood-hd-wallpaper-preview.jpg');
@@ -106,7 +111,7 @@
     img.background {
       width:100%;
       height: 150vh;
-    
+
       position: absolute;
       z-index:-10;
       top: 0;
@@ -136,7 +141,7 @@
         font-size: larger;
     }
 
-    
+
 </style>
 <img src="https://img.povar.ru/uploads/6f/27/9d/d8/mandarini-758591.jpg" class="background" />
 
@@ -162,11 +167,11 @@
 
   <% end %>
   </div>
-  
+
   <button><%= link_to 'ADD NEW ROOM', new_room_path %></button>
-  
+
   <br>
-    
+
 </body>
 
 </html>

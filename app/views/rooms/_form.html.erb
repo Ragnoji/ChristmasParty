@@ -11,20 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="desc">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
-  <div class="field">
+  <br>
+  <div class="date">
     <%= form.label :date_of_event %>
     <%= form.date_field :deadline_at, min: Date.today %>
   </div>
 
-  <div class="field">
+  <div class="city">
     <%= form.select :city_id, City.all.map { |city| [city.name, city.id] } %>
   </div>
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

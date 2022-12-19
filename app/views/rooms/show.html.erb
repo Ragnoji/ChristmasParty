@@ -4,12 +4,15 @@
 <p>Members: <%= @room.room_memberships.count %>
 
 <%= form_with model: [@room, @message] do |form|  %>
+    <audio autoplay>
+        <source src="<%= asset_path('JingleBells.mp3') %>">
+    </audio>
     <div>
         <%= form.label :content %>
-        <%= form.text_field :content %>    
+        <%= form.text_field :content %>
     </div>
     <div>
-        <%= form.submit%>   
+        <%= form.submit%>
     </div>
 
 <% end %>

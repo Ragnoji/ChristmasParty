@@ -119,13 +119,14 @@
       text-decoration: none;
       color:black;
     }
+    .nav-item > .nav-link {
+        color: white;
+        font-size: larger;
+    }
 
     
 </style>
 <img src="https://img.povar.ru/uploads/6f/27/9d/d8/mandarini-758591.jpg" class="background" />
-<a href='{{ url_for("main") }}' id="2">
-    <img class="q" src="https://www.ikea.com/us/en/static/ikea-logo.f7d9229f806b59ec64cb.svg" alt>
-</a>
 <center><h1>Christmas Party</h1></center>
   <div class='row'>
   <% @rooms.each do|room| %>

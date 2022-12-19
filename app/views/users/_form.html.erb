@@ -11,42 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
+  <div class="container-main">
+    <div class="container">
+      <div class="field">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
 
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_field :date_of_birth, min: Date.today %>
-  </div>
+      <div class="field">
+        <%= form.label :date_of_birth %>
+        <%= form.date_field :date_of_birth, min: Date.today %>
+      </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.select :gender, %i[not_chosen man girl] %>
-  </div>
+      <div class="field">
+        <%= form.label :gender %>
+        <%= form.select :gender, %i[not_chosen man girl] %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, type: :password %>
-  </div>
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.text_field :password, type: :password %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit "Sign up" %>
+      <div>
+        <%= form.submit "Sign up", class: "button-jos" %>
+      </div>
+    </div>
   </div>
 <% end %>

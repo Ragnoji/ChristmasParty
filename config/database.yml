@@ -23,6 +23,10 @@ default: &default
 
 development:
   <<: *default
+  # adapter: postgresql
+  # encoding: unicode
+  # host: localhost
+  # pool: 5
   database: ChristmasParty_development
 
   # The specified database role being used to connect to postgres.

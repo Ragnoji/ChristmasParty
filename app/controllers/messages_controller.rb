@@ -18,7 +18,6 @@ class MessagesController < ApplicationController
     end
 
     def update
-
     end
 
     private
@@ -30,11 +29,4 @@ class MessagesController < ApplicationController
     def set_room
         @room = Room.find(params[:room_id])
     end
-
-    def broadcast_message_create
-        Turbo::StreamsChannel.broadcast_render_to(
-            [:messages], template: "messages/created", locals: { message: @message }
-        )
-    end
-
 end

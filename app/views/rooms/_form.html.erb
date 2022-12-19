@@ -1,50 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<style>
-body {
-  text-align:center;
-  margin-top: 50px;
-  margin-left: 150px;
-  margin: auto;
-}
-textarea {
-  border-radius: 20px;
-}
-select {
-  display: inline-block;
-  height: 40px;
-  border-radius: 20px;
-  width:250px;
-}
-input[type=submit]{
-  height: 35px;
-  border-radius: 20px;
-  background-color: #DEF7FE;
-}
-input[type=date]{
-  height: 35px;
-  border-radius: 20px;
-}
-.all_el {
-  background-color: white;
-  border: 1px solid #000;
-  /* margin: 50px; */
-  position: absolute;
-  top: 15%;
-  left: 40%;
-  width: 300px;
-  height: 200px;
-  padding: 50px;
-  border-radius: 30px;
-  justify-content: center;
-}
-</style>
-<div class='all_el'>
 <%= form_with(model: room) do |form| %>
   <% if room.errors.any? %>
     <div id="error_explanation">
@@ -67,16 +20,12 @@ input[type=date]{
     <%= form.label :date_of_event %>
     <%= form.date_field :deadline_at, min: Date.today %>
   </div>
-  <br>
+
   <div class="city">
-    <%= form.select :city_id, @cities.map { |city| [city.name, city.id] } %>
+    <%= form.select :city_id, City.all.map { |city| [city.name, city.id] } %>
   </div>
   <br>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
-</div>
-</body>
-
-</html>

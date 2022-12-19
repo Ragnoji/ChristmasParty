@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+    render :index, layout: false
   end
 
   def show

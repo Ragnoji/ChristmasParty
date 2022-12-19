@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2022_12_18_111809) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "room_memberships", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_room_memberships_on_room_id"
+    t.index ["user_id"], name: "index_room_memberships_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.text "description"
     t.datetime "deadline_at", null: false
